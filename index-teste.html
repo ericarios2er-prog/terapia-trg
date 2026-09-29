@@ -512,7 +512,7 @@
             // -----------------------------------------------------
             let currentSlide = 1;
             const totalSlides = 5;
-            const slideDuration = 6500; // 6.5 segundos por slide
+            const slideDuration = 6500;
             let isPlaying = false;
             let progressInterval;
 
@@ -520,13 +520,8 @@
                 if(isPlaying) return;
                 isPlaying = true;
                 document.getElementById('play-screen').style.display = 'none';
-
-                // Iniciar o Áudio
                 const audio = document.getElementById('vsl-audio');
-                if(audio) {
-                    audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
-                }
-
+                if(audio) audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
                 showSlide(currentSlide);
             }
 
@@ -535,20 +530,16 @@
                     document.getElementById('slide-'+i).classList.remove('active');
                     document.getElementById('slide-'+i).classList.add('inactive');
                 }
-
                 const activeSlide = document.getElementById('slide-'+index);
                 activeSlide.classList.remove('inactive');
                 activeSlide.classList.add('active');
-
                 const progressBar = document.getElementById('progress');
                 progressBar.style.width = '0%';
                 progressBar.style.transition = 'none';
-
                 setTimeout(() => {
                     progressBar.style.transition = `width ${slideDuration}ms linear`;
                     progressBar.style.width = '100%';
                 }, 50);
-
                 clearInterval(progressInterval);
                 if(index < totalSlides) {
                     progressInterval = setTimeout(() => {
@@ -556,14 +547,12 @@
                         showSlide(currentSlide);
                     }, slideDuration);
                 } else {
-                    setTimeout(() => {
-                        progressBar.style.opacity = '0';
-                    }, slideDuration);
+                    setTimeout(() => progressBar.style.opacity = '0', slideDuration);
                 }
             }
 
             // -----------------------------------------------------
-            // LÓGICA DO CARROSSEL DE DEPOIMENTOS (Auto-scroll)
+            // LÓGICA DO CARROSSEL DE DEPOIMENTOS
             // -----------------------------------------------------
             const carousel = document.getElementById('carousel');
             const prevBtn = document.getElementById('prevBtn');
@@ -581,10 +570,7 @@
                     }
                 }, 8000);
             }
-
-            function stopAutoScroll() {
-                clearInterval(autoScrollInterval);
-            }
+            function stopAutoScroll() { clearInterval(autoScrollInterval); }
 
             if(carousel) {
                 startAutoScroll();
@@ -593,14 +579,12 @@
                 carousel.addEventListener('touchstart', stopAutoScroll);
                 carousel.addEventListener('touchend', stopAutoScroll);
             }
-
             if(prevBtn && nextBtn && carousel) {
                 nextBtn.addEventListener('click', () => {
                     carousel.scrollBy({ left: 350, behavior: 'smooth' });
                     stopAutoScroll();
                     setTimeout(startAutoScroll, 10000);
                 });
-
                 prevBtn.addEventListener('click', () => {
                     carousel.scrollBy({ left: -350, behavior: 'smooth' });
                     stopAutoScroll();
@@ -609,61 +593,72 @@
             }
 
             // =====================================================
-            // 🚀 INTELIGÊNCIA SIER GROWTH (ROTA 2 ATIVA - CAPTURA)
+            // 🚀 INTEGRAÇÃO COM O SEU CRM INTACTO (CAPTURA + REDIRECT)
             // =====================================================
             document.addEventListener("DOMContentLoaded", function() {
                 const leadForm = document.getElementById('leadForm');
                 if(!leadForm) return;
 
                 leadForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); // Impede a página de recarregar
+                    e.preventDefault();
 
                     const btn = this.querySelector('button[type="submit"]');
                     const textoOriginalBtn = btn.innerHTML;
-                    btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Processando...';
+                    btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Conectando...';
                     btn.disabled = true;
 
-                    // 1. Pega as UTMs da URL
+                    // Puxa as UTMs do link
                     const urlParams = new URLSearchParams(window.location.search);
-                    const utmSource = urlParams.get('utm_source') || 'Organico';
-                    const utmCampaign = urlParams.get('utm_campaign') || 'Direto / LP';
 
-                    // 2. Monta o pacote de dados do Lead
+                    // Gera o Event ID para o Facebook CAPI do seu CRM
+                    const eventId = "evt_" + Date.now();
+
+                    // Monta a encomenda EXATAMENTE como o seu CRM pede
                     const dadosLead = {
+                        empresa_id: "db6a32e5-e36c-46ad-90da-e1658f2b9e0b", // 🚨 CRM
                         nome: document.getElementById('nomeCliente').value,
-                        telefone: document.getElementById('telefoneCliente').value.replace(/\D/g, ''), // Limpa () e -
-                        utm_source: utmSource,
-                        utm_campaign: utmCampaign,
-                        origem: "Landing Page Externa TRG"
+                        telefone: document.getElementById('telefoneCliente').value,
+                        origem: "Landing Page Externa",
+                        utm_source: urlParams.get('utm_source') || 'Organico',
+                        utm_medium: urlParams.get('utm_medium') || null,
+                        utm_campaign: urlParams.get('utm_campaign') || 'Direto / LP',
+                        fb_event_id: eventId,
+                        client_user_agent: navigator.userAgent,
+                        client_url: window.location.href
                     };
 
-                    // 3. Dispara o Pixel de Conversão do Meta Ads (Otimiza a campanha!)
+                    // Dispara o Pixel Front-end para garantir
                     if(typeof fbq !== 'undefined') {
-                        fbq('track', 'Lead');
+                        fbq('track', 'Lead', {}, { eventID: eventId });
                     }
 
-                    // 4. DISPARA PARA O CRM DA SIER
-                    // 🚨 COLOQUE AQUI A URL DO SEU WEBHOOK (n8n, Make, ou API)
-                    const urlDoCRM = "COLOQUE_AQUI_O_SEU_WEBHOOK";
+                    // 🚨 CRM
+                    const urlDoCRM = "https://app.siergrowth.com.br/api/webhook/landingpage";
 
                     fetch(urlDoCRM, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(dadosLead)
                     })
-                    .then(response => {
-                        // Oculta o formulário e mostra o SUCESSO!
-                        document.getElementById('form-content').classList.add('hidden');
-                        document.getElementById('success-msg').classList.remove('hidden');
-                        lucide.createIcons(); // Recarrega o ícone de Check verde
+                    .then(res => res.json())
+                    .then(data => {
+                        // O seu CRM cria o lead e devolve o link do WhatsApp!
+                        if(data.redirect) {
+                            window.location.href = data.redirect; // Manda o cliente direto pro Zap
+                        } else if (data.error) {
+                            alert("Erro: " + data.error);
+                            btn.innerHTML = textoOriginalBtn;
+                            btn.disabled = false;
+                        }
                     })
                     .catch(error => {
-                        console.error('Erro ao enviar:', error);
-                        btn.innerHTML = 'Erro. Tente novamente!';
+                        console.error('Erro na conexão:', error);
+                        btn.innerHTML = 'Tentar Novamente';
                         btn.disabled = false;
                     });
                 });
             });
         </script>
+
 </body>
 </html>
