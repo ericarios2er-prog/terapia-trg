@@ -101,10 +101,34 @@
                     <p class="text-lg text-gray-600 mb-8">
                         Através da TRG, nós vamos direto à raiz da dor emocional que bloqueia a sua comunicação, sua carreira e seus relacionamentos. Recupere o controle da sua história de forma rápida e direcionada.
                     </p>
-                    <a href="https://wa.me/5571999010521?text=Ol%C3%A1%2C%20Erica%21%20Gostaria%20de%20agendar%20minha%20sess%C3%A3o%20de%20TRG." onclick="fbq('track', 'Contact');" class="inline-flex justify-center items-center w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-lg">
-                        QUERO RESGATAR A MINHA VIDA AGORA
-                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
-                    </a>
+                    <!-- 🚀 FORMULÁRIO DE CAPTURA ATIVA (ROTA 2) -->
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 relative max-w-sm mt-6">
+                        <div id="form-content">
+                            <h3 class="text-sm font-bold text-gray-900 mb-4 text-center">Para iniciarmos, informe os seus dados:</h3>
+                            <form id="leadForm" class="space-y-4">
+                                <div>
+                                    <input type="text" id="nomeCliente" required placeholder="Seu Primeiro Nome" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
+                                </div>
+                                <div>
+                                   <input type="text" id="dorCliente" required placeholder="O que mais te trava hoje? (Ex: Ansiedade, Medo...)" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
+                             </div>
+                                <div>
+                                    <input type="tel" id="telefoneCliente" required placeholder="Seu WhatsApp (com DDD)" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
+                                </div>
+                                <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-sm flex justify-center items-center uppercase tracking-wider">
+                                    Resgatar Minha Vida Agora
+                                    <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- MENSAGEM DE SUCESSO (Aparece após clicar) -->
+                        <div id="success-msg" class="hidden text-center py-6 animate-fade-in">
+                            <i data-lucide="check-circle-2" class="w-16 h-16 text-green-500 mx-auto mb-3"></i>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Tudo Certo!</h3>
+                            <p class="text-gray-600 text-sm font-medium">A nossa inteligência artificial acabou de enviar uma mensagem para o seu WhatsApp. Verifique o seu telemóvel!</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="relative">
@@ -415,7 +439,7 @@
                         <span class="text-xl font-medium text-gray-500">/sessão</span>
                     </div>
 
-                    <a href="https://wa.me/557199010521?text=Ol%C3%A1%2C%20Erica%21%20Quero%20aproveitar%20o%20valor%20promocional%20de%20R%24150%20para%20a%20minha%20primeira%20sess%C3%A3o." onclick="fbq('track', 'Contact');" class="block w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all text-lg mb-4">
+                    <a href="https://wa.me/5557199010521?text=Ol%C3%A1%2C%20Erica%21%20Quero%20aproveitar%20o%20valor%20promocional%20de%20R%24150%20para%20a%20minha%20primeira%20sess%C3%A3o." onclick="fbq('track', 'Contact');" class="block w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all text-lg mb-4">
                         AGENDAR A MINHA SESSÃO AGORA
                     </a>
 
@@ -483,109 +507,171 @@
     </footer>
 
     <script>
-        // Inicializar ícones Lucide
-        lucide.createIcons();
+            // Inicializar ícones Lucide
+            lucide.createIcons();
 
-        // -----------------------------------------------------
-        // LÓGICA DA VSL ANIMADA COM ÁUDIO
-        // -----------------------------------------------------
-        let currentSlide = 1;
-        const totalSlides = 5;
-        const slideDuration = 6500; // 6.5 segundos por slide
-        let isPlaying = false;
-        let progressInterval;
+            // -----------------------------------------------------
+            // LÓGICA DA VSL ANIMADA COM ÁUDIO
+            // -----------------------------------------------------
+            let currentSlide = 1;
+            const totalSlides = 5;
+            const slideDuration = 6500;
+            let isPlaying = false;
+            let progressInterval;
 
-        function startVsl() {
-            if(isPlaying) return;
-            isPlaying = true;
-            document.getElementById('play-screen').style.display = 'none';
-
-            // Iniciar o Áudio
-            const audio = document.getElementById('vsl-audio');
-            if(audio) {
-                audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
+            function startVsl() {
+                if(isPlaying) return;
+                isPlaying = true;
+                document.getElementById('play-screen').style.display = 'none';
+                const audio = document.getElementById('vsl-audio');
+                if(audio) audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
+                showSlide(currentSlide);
             }
 
-            showSlide(currentSlide);
-        }
-
-        function showSlide(index) {
-            for(let i=1; i<=totalSlides; i++) {
-                document.getElementById('slide-'+i).classList.remove('active');
-                document.getElementById('slide-'+i).classList.add('inactive');
-            }
-
-            const activeSlide = document.getElementById('slide-'+index);
-            activeSlide.classList.remove('inactive');
-            activeSlide.classList.add('active');
-
-            const progressBar = document.getElementById('progress');
-            progressBar.style.width = '0%';
-            progressBar.style.transition = 'none';
-
-            setTimeout(() => {
-                progressBar.style.transition = `width ${slideDuration}ms linear`;
-                progressBar.style.width = '100%';
-            }, 50);
-
-            clearInterval(progressInterval);
-            if(index < totalSlides) {
-                progressInterval = setTimeout(() => {
-                    currentSlide++;
-                    showSlide(currentSlide);
-                }, slideDuration);
-            } else {
-                setTimeout(() => {
-                    progressBar.style.opacity = '0';
-                }, slideDuration);
-            }
-        }
-
-        // -----------------------------------------------------
-        // LÓGICA DO CARROSSEL DE DEPOIMENTOS (Auto-scroll)
-        // -----------------------------------------------------
-        const carousel = document.getElementById('carousel');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        let autoScrollInterval;
-
-        function startAutoScroll() {
-            autoScrollInterval = setInterval(() => {
-                if (carousel) {
-                    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        carousel.scrollBy({ left: 350, behavior: 'smooth' });
-                    }
+            function showSlide(index) {
+                for(let i=1; i<=totalSlides; i++) {
+                    document.getElementById('slide-'+i).classList.remove('active');
+                    document.getElementById('slide-'+i).classList.add('inactive');
                 }
-            }, 8000);
-        }
+                const activeSlide = document.getElementById('slide-'+index);
+                activeSlide.classList.remove('inactive');
+                activeSlide.classList.add('active');
+                const progressBar = document.getElementById('progress');
+                progressBar.style.width = '0%';
+                progressBar.style.transition = 'none';
+                setTimeout(() => {
+                    progressBar.style.transition = `width ${slideDuration}ms linear`;
+                    progressBar.style.width = '100%';
+                }, 50);
+                clearInterval(progressInterval);
+                if(index < totalSlides) {
+                    progressInterval = setTimeout(() => {
+                        currentSlide++;
+                        showSlide(currentSlide);
+                    }, slideDuration);
+                } else {
+                    setTimeout(() => progressBar.style.opacity = '0', slideDuration);
+                }
+            }
 
-        function stopAutoScroll() {
-            clearInterval(autoScrollInterval);
-        }
+            // -----------------------------------------------------
+            // LÓGICA DO CARROSSEL DE DEPOIMENTOS
+            // -----------------------------------------------------
+            const carousel = document.getElementById('carousel');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let autoScrollInterval;
 
-        if(carousel) {
-            startAutoScroll();
-            carousel.addEventListener('mouseenter', stopAutoScroll);
-            carousel.addEventListener('mouseleave', startAutoScroll);
-            carousel.addEventListener('touchstart', stopAutoScroll);
-            carousel.addEventListener('touchend', stopAutoScroll);
-        }
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    if (carousel) {
+                        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                        }
+                    }
+                }, 8000);
+            }
+            function stopAutoScroll() { clearInterval(autoScrollInterval); }
 
-        if(prevBtn && nextBtn && carousel) {
-            nextBtn.addEventListener('click', () => {
-                carousel.scrollBy({ left: 350, behavior: 'smooth' });
-                stopAutoScroll();
-                setTimeout(startAutoScroll, 10000);
+            if(carousel) {
+                startAutoScroll();
+                carousel.addEventListener('mouseenter', stopAutoScroll);
+                carousel.addEventListener('mouseleave', startAutoScroll);
+                carousel.addEventListener('touchstart', stopAutoScroll);
+                carousel.addEventListener('touchend', stopAutoScroll);
+            }
+            if(prevBtn && nextBtn && carousel) {
+                nextBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                    stopAutoScroll();
+                    setTimeout(startAutoScroll, 10000);
+                });
+                prevBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: -350, behavior: 'smooth' });
+                    stopAutoScroll();
+                    setTimeout(startAutoScroll, 10000);
+                });
+            }
+
+            // =====================================================
+            // 🚀 INTEGRAÇÃO COM O SEU CRM INTACTO (CAPTURA + REDIRECT PERSONALIZADO)
+            // =====================================================
+            document.addEventListener("DOMContentLoaded", function() {
+                const leadForm = document.getElementById('leadForm');
+                if(!leadForm) return;
+
+                leadForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const btn = this.querySelector('button[type="submit"]');
+                    const textoOriginalBtn = btn.innerHTML;
+                    btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Conectando...';
+                    btn.disabled = true;
+
+                    // 1. Puxa as UTMs do link e gera ID pro Facebook
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const eventId = "evt_" + Date.now();
+
+                    // 2. 🚀 Captura TODOS os valores preenchidos na hora do clique
+                    const nomeDigitado = document.getElementById('nomeCliente').value;
+                    const dorDigitada = document.getElementById('dorCliente').value;
+                    const telefoneDigitado = document.getElementById('telefoneCliente').value;
+
+                    // 3. Monta a encomenda para o CRM (Com o seu ID real!)
+                    const dadosLead = {
+                        empresa_id: "db6a32e5-e36c-46ad-90da-e1658f2b9e0b", // ID da Empresa no CRM
+                        nome: nomeDigitado,
+                        telefone: telefoneDigitado,
+                        origem: "Landing Page Externa",
+                        utm_source: urlParams.get('utm_source') || 'Organico',
+                        utm_medium: urlParams.get('utm_medium') || null,
+                        utm_campaign: urlParams.get('utm_campaign') || 'Direto / LP',
+                        fb_event_id: eventId,
+                        client_user_agent: navigator.userAgent,
+                        client_url: window.location.href
+                    };
+
+                    // Dispara o Pixel Front-end para garantir
+                    if(typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead', {}, { eventID: eventId });
+                    }
+
+                    // 4. Bate na porta do CRM da Sier
+                    const urlDoCRM = "https://app.siergrowth.com.br/api/webhook/landingpage";
+
+                    fetch(urlDoCRM, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(dadosLead)
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.redirect) {
+                            // 🚀 O HACK DE NEUROMARKETING: Manipulando o texto do WhatsApp!
+                            const urlWhatsApp = new URL(data.redirect);
+                            const numeroDestino = urlWhatsApp.pathname.replace('/', ''); // Extrai só o "5571..."
+
+                            // Monta o texto de Neuromarketing altamente personalizado
+                            const textoPersonalizado = `Olá Erica! Meu nome é ${nomeDigitado} e estou buscando ajuda para lidar com: ${dorDigitada}.`;
+
+                            // Redireciona o cliente com o texto matador!
+                            window.location.href = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(textoPersonalizado)}`;
+
+                        } else if (data.error) {
+                            alert("Erro: " + data.error);
+                            btn.innerHTML = textoOriginalBtn;
+                            btn.disabled = false;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro na conexão:', error);
+                        btn.innerHTML = 'Tentar Novamente';
+                        btn.disabled = false;
+                    });
+                });
             });
-
-            prevBtn.addEventListener('click', () => {
-                carousel.scrollBy({ left: -350, behavior: 'smooth' });
-                stopAutoScroll();
-                setTimeout(startAutoScroll, 10000);
-            });
-        }
-    </script>
+        </script>
 </body>
 </html>
