@@ -507,171 +507,173 @@
     </footer>
 
     <script>
-            // Inicializar ícones Lucide
-            lucide.createIcons();
+                // Inicializar ícones Lucide
+                lucide.createIcons();
 
-            // -----------------------------------------------------
-            // LÓGICA DA VSL ANIMADA COM ÁUDIO
-            // -----------------------------------------------------
-            let currentSlide = 1;
-            const totalSlides = 5;
-            const slideDuration = 6500;
-            let isPlaying = false;
-            let progressInterval;
+                // -----------------------------------------------------
+                // LÓGICA DA VSL ANIMADA COM ÁUDIO
+                // -----------------------------------------------------
+                let currentSlide = 1;
+                const totalSlides = 5;
+                const slideDuration = 6500;
+                let isPlaying = false;
+                let progressInterval;
 
-            function startVsl() {
-                if(isPlaying) return;
-                isPlaying = true;
-                document.getElementById('play-screen').style.display = 'none';
-                const audio = document.getElementById('vsl-audio');
-                if(audio) audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
-                showSlide(currentSlide);
-            }
-
-            function showSlide(index) {
-                for(let i=1; i<=totalSlides; i++) {
-                    document.getElementById('slide-'+i).classList.remove('active');
-                    document.getElementById('slide-'+i).classList.add('inactive');
+                function startVsl() {
+                    if(isPlaying) return;
+                    isPlaying = true;
+                    document.getElementById('play-screen').style.display = 'none';
+                    const audio = document.getElementById('vsl-audio');
+                    if(audio) audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
+                    showSlide(currentSlide);
                 }
-                const activeSlide = document.getElementById('slide-'+index);
-                activeSlide.classList.remove('inactive');
-                activeSlide.classList.add('active');
-                const progressBar = document.getElementById('progress');
-                progressBar.style.width = '0%';
-                progressBar.style.transition = 'none';
-                setTimeout(() => {
-                    progressBar.style.transition = `width ${slideDuration}ms linear`;
-                    progressBar.style.width = '100%';
-                }, 50);
-                clearInterval(progressInterval);
-                if(index < totalSlides) {
-                    progressInterval = setTimeout(() => {
-                        currentSlide++;
-                        showSlide(currentSlide);
-                    }, slideDuration);
-                } else {
-                    setTimeout(() => progressBar.style.opacity = '0', slideDuration);
+
+                function showSlide(index) {
+                    for(let i=1; i<=totalSlides; i++) {
+                        document.getElementById('slide-'+i).classList.remove('active');
+                        document.getElementById('slide-'+i).classList.add('inactive');
+                    }
+                    const activeSlide = document.getElementById('slide-'+index);
+                    activeSlide.classList.remove('inactive');
+                    activeSlide.classList.add('active');
+                    const progressBar = document.getElementById('progress');
+                    progressBar.style.width = '0%';
+                    progressBar.style.transition = 'none';
+                    setTimeout(() => {
+                        progressBar.style.transition = `width ${slideDuration}ms linear`;
+                        progressBar.style.width = '100%';
+                    }, 50);
+                    clearInterval(progressInterval);
+                    if(index < totalSlides) {
+                        progressInterval = setTimeout(() => {
+                            currentSlide++;
+                            showSlide(currentSlide);
+                        }, slideDuration);
+                    } else {
+                        setTimeout(() => progressBar.style.opacity = '0', slideDuration);
+                    }
                 }
-            }
 
-            // -----------------------------------------------------
-            // LÓGICA DO CARROSSEL DE DEPOIMENTOS
-            // -----------------------------------------------------
-            const carousel = document.getElementById('carousel');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            let autoScrollInterval;
+                // -----------------------------------------------------
+                // LÓGICA DO CARROSSEL DE DEPOIMENTOS
+                // -----------------------------------------------------
+                const carousel = document.getElementById('carousel');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                let autoScrollInterval;
 
-            function startAutoScroll() {
-                autoScrollInterval = setInterval(() => {
-                    if (carousel) {
-                        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                            carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                        } else {
-                            carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                function startAutoScroll() {
+                    autoScrollInterval = setInterval(() => {
+                        if (carousel) {
+                            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                            } else {
+                                carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                            }
                         }
-                    }
-                }, 8000);
-            }
-            function stopAutoScroll() { clearInterval(autoScrollInterval); }
+                    }, 8000);
+                }
+                function stopAutoScroll() { clearInterval(autoScrollInterval); }
 
-            if(carousel) {
-                startAutoScroll();
-                carousel.addEventListener('mouseenter', stopAutoScroll);
-                carousel.addEventListener('mouseleave', startAutoScroll);
-                carousel.addEventListener('touchstart', stopAutoScroll);
-                carousel.addEventListener('touchend', stopAutoScroll);
-            }
-            if(prevBtn && nextBtn && carousel) {
-                nextBtn.addEventListener('click', () => {
-                    carousel.scrollBy({ left: 350, behavior: 'smooth' });
-                    stopAutoScroll();
-                    setTimeout(startAutoScroll, 10000);
-                });
-                prevBtn.addEventListener('click', () => {
-                    carousel.scrollBy({ left: -350, behavior: 'smooth' });
-                    stopAutoScroll();
-                    setTimeout(startAutoScroll, 10000);
-                });
-            }
+                if(carousel) {
+                    startAutoScroll();
+                    carousel.addEventListener('mouseenter', stopAutoScroll);
+                    carousel.addEventListener('mouseleave', startAutoScroll);
+                    carousel.addEventListener('touchstart', stopAutoScroll);
+                    carousel.addEventListener('touchend', stopAutoScroll);
+                }
+                if(prevBtn && nextBtn && carousel) {
+                    nextBtn.addEventListener('click', () => {
+                        carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                        stopAutoScroll();
+                        setTimeout(startAutoScroll, 10000);
+                    });
+                    prevBtn.addEventListener('click', () => {
+                        carousel.scrollBy({ left: -350, behavior: 'smooth' });
+                        stopAutoScroll();
+                        setTimeout(startAutoScroll, 10000);
+                    });
+                }
 
-            // =====================================================
-            // 🚀 INTEGRAÇÃO COM O SEU CRM INTACTO (CAPTURA + REDIRECT PERSONALIZADO)
-            // =====================================================
-            document.addEventListener("DOMContentLoaded", function() {
-                const leadForm = document.getElementById('leadForm');
-                if(!leadForm) return;
+                // =====================================================
+                // 🚀 INTEGRAÇÃO COM O SEU CRM INTACTO (CAPTURA + REDIRECT PERSONALIZADO)
+                // =====================================================
+                document.addEventListener("DOMContentLoaded", function() {
+                    const leadForm = document.getElementById('leadForm');
+                    if(!leadForm) return;
 
-                leadForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
+                    leadForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
 
-                    const btn = this.querySelector('button[type="submit"]');
-                    const textoOriginalBtn = btn.innerHTML;
-                    btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Conectando...';
-                    btn.disabled = true;
+                        const btn = this.querySelector('button[type="submit"]');
+                        const textoOriginalBtn = btn.innerHTML;
+                        btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Conectando...';
+                        btn.disabled = true;
 
-                    // 1. Puxa as UTMs do link e gera ID pro Facebook
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const eventId = "evt_" + Date.now();
+                        // 1. Puxa as UTMs do link e gera ID pro Facebook
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const eventId = "evt_" + Date.now();
 
-                    // 2. 🚀 Captura TODOS os valores preenchidos na hora do clique
-                    const nomeDigitado = document.getElementById('nomeCliente').value;
-                    const dorDigitada = document.getElementById('dorCliente').value;
-                    const telefoneDigitado = document.getElementById('telefoneCliente').value;
+                        // 2. 🚀 Captura TODOS os valores preenchidos na hora do clique
+                        const nomeDigitado = document.getElementById('nomeCliente').value;
+                        const dorDigitada = document.getElementById('dorCliente').value;
+                        const telefoneDigitado = document.getElementById('telefoneCliente').value;
 
-                    // 3. Monta a encomenda para o CRM (Com o seu ID real!)
-                    const dadosLead = {
-                        empresa_id: "db6a32e5-e36c-46ad-90da-e1658f2b9e0b", // ID da Empresa no CRM
-                        nome: nomeDigitado,
-                        telefone: telefoneDigitado,
-                        origem: "Landing Page Externa",
-                        utm_source: urlParams.get('utm_source') || 'Organico',
-                        utm_medium: urlParams.get('utm_medium') || null,
-                        utm_campaign: urlParams.get('utm_campaign') || 'Direto / LP',
-                        fb_event_id: eventId,
-                        client_user_agent: navigator.userAgent,
-                        client_url: window.location.href
-                    };
+                        // 3. Monta a encomenda para o CRM (Com o HACK DA DOR na Origem!)
+                        const dadosLead = {
+                            empresa_id: "db6a32e5-e36c-46ad-90da-e1658f2b9e0b",
+                            nome: nomeDigitado,
+                            telefone: telefoneDigitado,
+                            // 👇 A MÁGICA FOI CORRIGIDA AQUI 👇
+                            origem: dorDigitada ? `Landing Page Externa | Dor: ${dorDigitada}` : "Landing Page Externa",
+                            utm_source: urlParams.get('utm_source') || 'Organico',
+                            utm_medium: urlParams.get('utm_medium') || null,
+                            utm_campaign: urlParams.get('utm_campaign') || 'Direto / LP',
+                            fb_event_id: eventId,
+                            client_user_agent: navigator.userAgent,
+                            client_url: window.location.href
+                        };
 
-                    // Dispara o Pixel Front-end para garantir
-                    if(typeof fbq !== 'undefined') {
-                        fbq('track', 'Lead', {}, { eventID: eventId });
-                    }
+                        // Dispara o Pixel Front-end para garantir
+                        if(typeof fbq !== 'undefined') {
+                            fbq('track', 'Lead', {}, { eventID: eventId });
+                        }
 
-                    // 4. Bate na porta do CRM da Sier
-                    const urlDoCRM = "https://app.siergrowth.com.br/api/webhook/landingpage";
+                        // 4. Bate na porta do CRM da Sier
+                        const urlDoCRM = "https://app.siergrowth.com.br/api/webhook/landingpage";
 
-                    fetch(urlDoCRM, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(dadosLead)
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        if(data.redirect) {
-                            // 🚀 O HACK DE NEUROMARKETING: Manipulando o texto do WhatsApp!
-                            const urlWhatsApp = new URL(data.redirect);
-                            const numeroDestino = urlWhatsApp.pathname.replace('/', ''); // Extrai só o "5571..."
+                        fetch(urlDoCRM, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(dadosLead)
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data.redirect) {
+                                // 🚀 O HACK DE NEUROMARKETING: Manipulando o texto do WhatsApp!
+                                const urlWhatsApp = new URL(data.redirect);
+                                const numeroDestino = urlWhatsApp.pathname.replace('/', '');
 
-                            // Monta o texto de Neuromarketing altamente personalizado
-                            const textoPersonalizado = `Olá Erica! Meu nome é ${nomeDigitado} e estou buscando ajuda para lidar com: ${dorDigitada}.`;
+                                // Monta o texto de Neuromarketing altamente personalizado
+                                const textoPersonalizado = `Olá Erica! Meu nome é ${nomeDigitado} e estou buscando ajuda para lidar com: ${dorDigitada}.`;
 
-                            // Redireciona o cliente com o texto matador!
-                            window.location.href = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(textoPersonalizado)}`;
+                                // Redireciona o cliente com o texto matador!
+                                window.location.href = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(textoPersonalizado)}`;
 
-                        } else if (data.error) {
-                            alert("Erro: " + data.error);
-                            btn.innerHTML = textoOriginalBtn;
+                            } else if (data.error) {
+                                alert("Erro: " + data.error);
+                                btn.innerHTML = textoOriginalBtn;
+                                btn.disabled = false;
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Erro na conexão:', error);
+                            btn.innerHTML = 'Tentar Novamente';
                             btn.disabled = false;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Erro na conexão:', error);
-                        btn.innerHTML = 'Tentar Novamente';
-                        btn.disabled = false;
+                        });
                     });
                 });
-            });
         </script>
+
 </body>
 </html>
