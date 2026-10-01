@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Erica Rios - Terapia TRG</title>
     <meta name="description" content="Destrave o seu futuro através do reprocessamento emocional com a Terapia TRG.">
+
+    <!-- 🚀 TAGS OPEN GRAPH PARA O FACEBOOK LER CORRETAMENTE E NÃO BLOQUEAR -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://terapia-trg.vercel.app/">
+    <meta property="og:title" content="Erica Rios - Terapia TRG">
+    <meta property="og:description" content="Destrave o seu futuro através do reprocessamento emocional.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -332,9 +340,9 @@
                 </ul>
             </div>
             <div class="relative">
-                <div class="absolute inset-0 bg-brand-500 transform translate-x-4 translate-y-4 rounded-2xl opacity-50"></div>
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sessão TRG" class="relative rounded-2xl shadow-xl z-10 w-full object-cover h-[400px]" />
-            </div>
+                            <div class="absolute inset-0 bg-brand-500 transform translate-x-4 translate-y-4 rounded-2xl opacity-50"></div>
+                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop" alt="Sessão TRG" class="relative rounded-2xl shadow-xl z-10 w-full object-cover h-[400px]" />
+                        </div>
         </div>
     </section>
 
@@ -420,15 +428,17 @@
                 <div class="p-8 md:p-10">
                     <div class="text-gray-400 line-through text-xl mb-2">De R$ 300,00</div>
                     <div class="flex justify-center items-baseline mb-8">
-                        <span class="text-3xl font-bold text-gray-900">R$</span>
-                        <span class="text-6xl font-extrabold text-gray-900 mx-1">150</span>
-                        <span class="text-xl font-medium text-gray-500">/sessão</span>
-                    </div>
+                                            <span class="text-3xl font-bold text-gray-900">R$</span>
+                                            <span class="text-6xl font-extrabold text-gray-900 mx-1">150</span>
+                                            <span class="text-xl font-medium text-gray-500">/sessão</span>
+                                        </div>
 
-                    <a href="https://wa.me/5557199010521?text=Ol%C3%A1%2C%20Erica%21%20Quero%20aproveitar%20o%20valor%20promocional%20de%20R%24150%20para%20a%20minha%20primeira%20sess%C3%A3o." onclick="fbq('track', 'Contact');" class="block w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all text-lg mb-4">
-                        AGENDAR A MINHA SESSÃO AGORA
-                    </a>
-                    <p class="text-xs text-red-600 font-semibold flex items-center justify-center">
+                                        <!-- 🚀 NOVO BOTÃO INTELIGENTE: Sobe a tela e abre o formulário -->
+                                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'}); setTimeout(() => { document.getElementById('btnRevealForm').click(); document.getElementById('nomeCliente').focus(); }, 800);" class="block w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all text-lg mb-4 uppercase">
+                                            AGENDAR A MINHA SESSÃO AGORA
+                                        </button>
+
+                                        <p class="text-xs text-red-600 font-semibold flex items-center justify-center">
                         <i data-lucide="clock" class="w-4 h-4 mr-1"></i>
                         Vagas promocionais limitadas ao preenchimento da agenda.
                     </p>
