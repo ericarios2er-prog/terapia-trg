@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erica Rios - Terapia TRG</title>
-    <meta name="description" content="Destrave o seu futuro ressignificando os traumas do seu passado com a Terapia TRG.">
+    <meta name="description" content="Destrave o seu futuro através do reprocessamento emocional com a Terapia TRG.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -83,7 +83,15 @@
         .delay-1 { transition-delay: 0.3s; }
         .delay-2 { transition-delay: 1.5s; }
     </style>
-    <!-- Meta Pixel Code --> <script> !function(f,b,e,v,n,t,s) {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1528974852604484'); fbq('track', 'PageView'); </script> <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1528974852604484&ev=PageView&noscript=1" /></noscript> <!-- End Meta Pixel Code -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s) {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1528974852604484');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1528974852604484&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body class="font-sans antialiased text-gray-800 bg-gray-50">
 
@@ -93,36 +101,51 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                     <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-700 font-semibold text-sm mb-6">
-                        Terapia de Reprocessamento Generativo
+                        Terapia de Reprocessamento Generativo (TRG)
                     </span>
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                        Sente que a sua vida está travada? <span class="text-brand-600">Destrave o seu futuro</span> ressignificando os traumas do passado.
+                        Sente que a sua vida está travada? <span class="text-brand-600">Destrave o seu futuro</span> ressignificando o passado.
                     </h1>
                     <p class="text-lg text-gray-600 mb-8">
-                        Através da TRG, nós vamos direto à raiz da dor emocional que bloqueia a sua comunicação, sua carreira e seus relacionamentos. Recupere o controle da sua história de forma rápida e direcionada.
+                        Através da TRG, nós vamos direto à raiz emocional que bloqueia a sua comunicação, a sua carreira e os seus relacionamentos. Recupere o controle da sua história de forma rápida e direcionada.
                     </p>
-                    <!-- 🚀 FORMULÁRIO DE CAPTURA ATIVA (ROTA 2) -->
+
+                    <!-- 🚀 FORMULÁRIO DE CAPTURA COM MICRO-COMMITMENT -->
                     <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 relative max-w-sm mt-6">
-                        <div id="form-content">
+
+                        <!-- Botão que revela o formulário -->
+                        <button id="btnRevealForm" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-sm flex justify-center items-center uppercase tracking-wider">
+                            Quero Agendar a Minha Sessão
+                            <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </button>
+
+                        <div id="form-content" class="hidden animate-fade-in">
                             <h3 class="text-sm font-bold text-gray-900 mb-4 text-center">Para iniciarmos, informe os seus dados:</h3>
                             <form id="leadForm" class="space-y-4">
                                 <div>
-                                    <input type="text" id="nomeCliente" required placeholder="Seu Primeiro Nome" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
+                                    <input type="text" id="nomeCliente" required placeholder="O seu Nome" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
                                 </div>
                                 <div>
-                                <input type="text" id="dorCliente" required placeholder="O que mais trava a sua vida hoje?" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium"> 
-                             </div>
-                                <div>
-                                    <input type="tel" id="telefoneCliente" required placeholder="Seu WhatsApp (com DDD)" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
+                                    <input type="email" id="emailCliente" required placeholder="O seu Melhor E-mail" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
                                 </div>
-                                <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-sm flex justify-center items-center uppercase tracking-wider">
-                                    Resgatar Minha Vida Agora
-                                    <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                                <div>
+                                    <input type="tel" id="telefoneCliente" required placeholder="O seu WhatsApp (com DDD)" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
+                                </div>
+                                <div>
+                                    <input type="text" id="dorCliente" required placeholder="Qual área da vida quer destravar hoje?" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all text-sm font-medium">
+                                </div>
+                                <button type="submit" class="w-full py-4 bg-gray-900 hover:bg-black text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-sm flex justify-center items-center uppercase tracking-wider">
+                                    Avançar para o WhatsApp
+                                    <i data-lucide="message-circle" class="ml-2 w-4 h-4"></i>
                                 </button>
+                                <!-- Aviso LGPD em baixo do botão -->
+                                <p class="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1 mt-2">
+                                    <i data-lucide="lock" class="w-3 h-3"></i> 100% Seguro. Respeitamos a LGPD.
+                                </p>
                             </form>
                         </div>
 
-                        <!-- MENSAGEM DE SUCESSO (Aparece após clicar) -->
+                        <!-- MENSAGEM DE SUCESSO -->
                         <div id="success-msg" class="hidden text-center py-6 animate-fade-in">
                             <i data-lucide="check-circle-2" class="w-16 h-16 text-green-500 mx-auto mb-3"></i>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Tudo Certo!</h3>
@@ -133,8 +156,6 @@
 
                 <div class="relative">
                     <!-- INÍCIO: VSL ANIMADA COM ÁUDIO -->
-
-                    <!-- Etiqueta de Áudio Oculta -->
                     <audio id="vsl-audio" src="vsl-audio.mp3" preload="auto"></audio>
 
                     <div class="aspect-video bg-gray-900 rounded-2xl shadow-2xl overflow-hidden relative flex items-center justify-center border-4 border-white cursor-pointer" id="vsl-container" onclick="startVsl()">
@@ -181,7 +202,7 @@
                                 </div>
                                 <div class="fade-up delay-1">
                                     <p class="text-brand-50 text-sm md:text-lg leading-relaxed max-w-2xl px-4 drop-shadow-md">
-                                        Quando o inconsciente carrega dores e traumas do passado...<br><br>
+                                        Quando o inconsciente carrega marcas e bloqueios do passado...<br><br>
                                         Ele interpreta qualquer tentativa de crescimento como uma <strong class="text-white">ameaça</strong>.
                                     </p>
                                 </div>
@@ -198,7 +219,7 @@
                                     <h2 class="text-white text-xl md:text-2xl font-bold mb-6 drop-shadow-lg">O resultado disso?</h2>
                                 </div>
                                 <div class="fade-up delay-1 flex flex-col gap-3 text-left mx-auto max-w-md px-4">
-                                    <div class="flex items-center text-gray-100 text-sm md:text-base drop-shadow-md"><i data-lucide="x-circle" class="text-brand-500 mr-3 w-5 h-5"></i> Ansiedade constante</div>
+                                    <div class="flex items-center text-gray-100 text-sm md:text-base drop-shadow-md"><i data-lucide="x-circle" class="text-brand-500 mr-3 w-5 h-5"></i> Insegurança constante</div>
                                     <div class="flex items-center text-gray-100 text-sm md:text-base drop-shadow-md"><i data-lucide="x-circle" class="text-brand-500 mr-3 w-5 h-5"></i> Medo do julgamento</div>
                                     <div class="flex items-center text-gray-100 text-sm md:text-base drop-shadow-md"><i data-lucide="x-circle" class="text-brand-500 mr-3 w-5 h-5"></i> Autossabotagem</div>
                                 </div>
@@ -266,11 +287,11 @@
                         <i data-lucide="message-square" class="text-orange-500 w-6 h-6"></i>
                     </div>
                     <h3 class="font-bold text-lg mb-2">Comunicação</h3>
-                    <p class="text-gray-600">O medo do julgamento, a ansiedade ou a timidez travam a sua voz na hora de expressar as suas ideias.</p>
+                    <p class="text-gray-600">O medo do julgamento, a insegurança ou a timidez travam a sua voz na hora de expressar as suas ideias.</p>
                 </div>
                 <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="heart-crack" class="text-blue-500 w-6 h-6"></i>
+                        <i data-lucide="users" class="text-blue-500 w-6 h-6"></i>
                     </div>
                     <h3 class="font-bold text-lg mb-2">Vida Pessoal</h3>
                     <p class="text-gray-600">Os mesmos padrões de frustração e conflitos insistem em repetir-se nos seus relacionamentos.</p>
@@ -278,7 +299,7 @@
             </div>
 
             <p class="mt-12 text-lg text-gray-700 font-medium max-w-3xl mx-auto bg-brand-50 p-6 rounded-lg border-l-4 border-brand-500 text-left">
-                Isto não é falta de esforço ou de capacidade. Isto é o reflexo de traumas e marcas emocionais acumuladas no seu inconsciente que ainda não foram processadas. <strong class="text-brand-700">Quando o passado não é resolvido, ele dita o seu presente.</strong>
+                Isto não é falta de esforço ou de capacidade. Isto é o reflexo de marcas emocionais acumuladas no seu inconsciente que ainda não foram processadas. <strong class="text-brand-700">Quando o passado não é resolvido, ele dita o seu presente.</strong>
             </p>
         </div>
     </section>
@@ -289,12 +310,12 @@
             <div>
                 <h2 class="text-3xl font-bold mb-6">Conheça o Reprocessamento Emocional: O método para reescrever a sua história</h2>
                 <p class="text-brand-100 text-lg mb-8">
-                    A Terapia de Reprocessamento Generativo (TRG) não é apenas uma conversa sobre os seus problemas. É um método estruturado focado no reprocessamento de traumas emocionais e libertação de traumas profundos.
+                    A Terapia de Reprocessamento Generativo (TRG) não é apenas uma conversa. É um método estruturado focado no reprocessamento emocional para libertação de bloqueios profundos.
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-start">
                         <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-400 mr-3 flex-shrink-0 mt-0.5"></i>
-                        <span><strong>Libertação de Bloqueios:</strong> Limpe os registos de dor e medo que sabotam o seu crescimento.</span>
+                        <span><strong>Libertação de Bloqueios:</strong> Limpe os registos de medo que sabotam o seu crescimento.</span>
                     </li>
                     <li class="flex items-start">
                         <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-400 mr-3 flex-shrink-0 mt-0.5"></i>
@@ -312,7 +333,7 @@
             </div>
             <div class="relative">
                 <div class="absolute inset-0 bg-brand-500 transform translate-x-4 translate-y-4 rounded-2xl opacity-50"></div>
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Terapia TRG" class="relative rounded-2xl shadow-xl z-10 w-full object-cover h-[400px]" />
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sessão TRG" class="relative rounded-2xl shadow-xl z-10 w-full object-cover h-[400px]" />
             </div>
         </div>
     </section>
@@ -327,20 +348,19 @@
                 <div class="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
                     <h2 class="text-3xl font-bold text-gray-900 mb-4">Quem a vai guiar nesta jornada?</h2>
                     <p class="text-gray-600 text-lg mb-4">
-                        Muito prazer, eu sou <strong>Erica Rios</strong>. Como terapeuta especializada em TRG e reprocessamento de traumas emocionais, dedico a minha vida a ajudar pessoas a libertarem-se dos pesos invisíveis do passado.
+                        Muito prazer, eu sou <strong>Erica Rios</strong>. Como terapeuta especializada em TRG e reprocessamento emocional, dedico a minha vida a ajudar pessoas a libertarem-se dos pesos invisíveis do passado.
                     </p>
                     <p class="text-gray-600 text-lg">
-                        Acredito que ninguém nasceu para viver travado pelo medo ou pela ansiedade. O meu papel aqui é dar-lhe um ambiente seguro, acolhedor e com técnicas cientificamente direcionadas para que possa, finalmente, assumir o papel de protagonista da sua própria realidade.
+                        Acredito que ninguém nasceu para viver travado pela insegurança. O meu papel aqui é dar-lhe um ambiente seguro, acolhedor e com técnicas cientificamente direcionadas para que possa, finalmente, assumir o papel de protagonista da sua própria realidade.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DOBRA 4.5: Prova Social (Depoimentos em Carrossel) -->
+    <!-- DOBRA 4.5: Prova Social -->
     <section class="py-24 bg-white border-y border-gray-100 overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 relative">
-
             <div class="text-center mb-16">
                 <span class="text-brand-500 font-bold tracking-widest text-sm uppercase mb-2 block">Prova Social</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">O que dizem os clientes</h2>
@@ -350,72 +370,39 @@
             <button id="prevBtn" class="hidden md:flex absolute left-0 top-[60%] -translate-y-1/2 -translate-x-4 bg-white shadow-xl border border-gray-100 rounded-full w-12 h-12 items-center justify-center z-10 text-brand-500 hover:bg-brand-50 hover:scale-110 transition cursor-pointer">
                 <i data-lucide="chevron-left" class="w-6 h-6"></i>
             </button>
-
             <button id="nextBtn" class="hidden md:flex absolute right-0 top-[60%] -translate-y-1/2 translate-x-4 bg-white shadow-xl border border-gray-100 rounded-full w-12 h-12 items-center justify-center z-10 text-brand-500 hover:bg-brand-50 hover:scale-110 transition cursor-pointer">
                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
             </button>
 
             <div id="carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-10 pt-4 px-4 md:px-8">
-                <!-- Depoimentos -->
+                <!-- Depoimento 1 -->
                 <div class="snap-center shrink-0 w-[300px] md:w-[350px] bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition relative">
                     <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-100 fill-brand-50"></i>
                     <div class="flex text-yellow-400 mb-4">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-gray-700 mb-6 relative z-10">"Sentia uma angústia constante e o meu trabalho não rendia. Em poucas sessões de TRG com a Erica, consegui limpar medos que nem sabia que tinha. Hoje posiciono-me nas reuniões sem tremer."</p>
+                    <p class="text-gray-700 mb-6 relative z-10">"Sentia uma angústia constante e o meu trabalho não rendia. Em poucas sessões de TRG com a Erica, consegui limpar inseguranças que nem sabia que tinha. Hoje posiciono-me nas reuniões sem tremer."</p>
                     <div class="font-bold text-gray-900">- Camila T.</div>
                 </div>
-
+                <!-- Depoimento 2 -->
                 <div class="snap-center shrink-0 w-[300px] md:w-[350px] bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition relative">
                     <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-100 fill-brand-50"></i>
                     <div class="flex text-yellow-400 mb-4">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-gray-700 mb-6 relative z-10">"Passei anos em terapias convencionais a falar sobre os mesmos problemas. A abordagem da Erica é diferente, ela vai à raiz. Sinto que tirei uma mochila de pedras das costas."</p>
+                    <p class="text-gray-700 mb-6 relative z-10">"Passei anos a falar sobre os mesmos problemas. A abordagem da Erica é diferente, ela vai à raiz. Sinto que tirei uma mochila de pedras das costas."</p>
                     <div class="font-bold text-gray-900">- Rodrigo M.</div>
                 </div>
-
+                <!-- Depoimento 3 -->
                 <div class="snap-center shrink-0 w-[300px] md:w-[350px] bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition relative">
                     <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-100 fill-brand-50"></i>
                     <div class="flex text-yellow-400 mb-4">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-gray-700 mb-6 relative z-10">"Os meus relacionamentos terminavam sempre da mesma forma e sentia-me muito culpada. O mapeamento emocional abriu-me os olhos e o reprocessamento mudou a minha vida."</p>
+                    <p class="text-gray-700 mb-6 relative z-10">"Os meus relacionamentos terminavam sempre da mesma forma. O mapeamento emocional abriu-me os olhos e o reprocessamento mudou a minha vida."</p>
                     <div class="font-bold text-gray-900">- Juliana S.</div>
                 </div>
-
-                <div class="snap-center shrink-0 w-[300px] md:w-[350px] bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition relative">
-                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-100 fill-brand-50"></i>
-                    <div class="flex text-yellow-400 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6 relative z-10">"Profissional incrível e extremamente acolhedora! Tinha crises fortes de ansiedade antes de qualquer desafio novo. A TRG devolveu-me o controlo do meu próprio cérebro."</p>
-                    <div class="font-bold text-gray-900">- Marcos F.</div>
-                </div>
-
-                <div class="snap-center shrink-0 w-[300px] md:w-[350px] bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition relative">
-                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-100 fill-brand-50"></i>
-                    <div class="flex text-yellow-400 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6 relative z-10">"O ambiente seguro que a Erica cria faz toda a diferença. Destravei bloqueios da minha infância que estavam a destruir a minha autoestima. Recomendo de olhos fechados."</p>
-                    <div class="font-bold text-gray-900">- Beatriz L.</div>
-                </div>
-
-                <div class="snap-center shrink-0 w-[300px] md:w-[350px] bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition relative">
-                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-100 fill-brand-50"></i>
-                    <div class="flex text-yellow-400 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6 relative z-10">"Estava prestes a desistir de uma promoção por medo de não dar conta da pressão. Limpámos esses gatilhos na sessão e hoje assumi a gerência da minha área com total segurança."</p>
-                    <div class="font-bold text-gray-900">- Carlos E.</div>
-                </div>
             </div>
-
-            <div class="text-center mt-6 text-brand-500/50 text-sm md:hidden">
-                <i data-lucide="move-horizontal" class="w-5 h-5 inline-block mr-1"></i> Deslize para ver mais
-            </div>
-
         </div>
     </section>
 
@@ -426,7 +413,6 @@
             <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
                 Um processo de reprocessamento emocional completo exige dedicação. Uma sessão avulsa com esse nível de entrega tem o valor padrão de R$ 300. Mas o seu compromisso merece um incentivo hoje.
             </p>
-
             <div class="bg-white rounded-3xl shadow-2xl border-4 border-brand-500 max-w-lg mx-auto overflow-hidden relative">
                 <div class="bg-brand-500 text-white py-2 text-sm font-bold tracking-wider uppercase">
                     Condição Especial de Primeira Sessão
@@ -442,10 +428,9 @@
                     <a href="https://wa.me/5557199010521?text=Ol%C3%A1%2C%20Erica%21%20Quero%20aproveitar%20o%20valor%20promocional%20de%20R%24150%20para%20a%20minha%20primeira%20sess%C3%A3o." onclick="fbq('track', 'Contact');" class="block w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all text-lg mb-4">
                         AGENDAR A MINHA SESSÃO AGORA
                     </a>
-
                     <p class="text-xs text-red-600 font-semibold flex items-center justify-center">
                         <i data-lucide="clock" class="w-4 h-4 mr-1"></i>
-                        Vagas promocionais limitadas ao preenchimento da agenda da semana.
+                        Vagas promocionais limitadas ao preenchimento da agenda.
                     </p>
                 </div>
             </div>
@@ -459,7 +444,7 @@
             <div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">A sua jornada com Risco Zero</h3>
                 <p class="text-gray-600">
-                    Fique em paz. O seu processo é conduzido com o máximo de sigilo, ética e profissionalismo. Se por qualquer motivo perceber na primeira sessão que o método não é para si, garantimos o ajuste do seu processo sem qualquer burocracia. O foco é 100% no seu bem-estar.
+                    Fique em paz. O seu processo é conduzido com o máximo de sigilo, ética e profissionalismo. Se por qualquer motivo perceber na primeira sessão que o método não é para si, garantimos o ajuste do seu processo. O foco é 100% no seu bem-estar.
                 </p>
             </div>
         </div>
@@ -469,211 +454,267 @@
     <section class="py-20 bg-gray-50">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Perguntas Frequentes</h2>
-
             <div class="space-y-6">
                 <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                     <h4 class="font-bold text-lg text-gray-900 mb-2 flex items-center">
                         <i data-lucide="help-circle" class="w-5 h-5 text-brand-500 mr-2"></i>
                         Para quem é recomendada a TRG?
                     </h4>
-                    <p class="text-gray-600">É recomendada para qualquer pessoa que sinta que a vida está travada em áreas como a profissional, amorosa ou de comunicação, e que carrega dores, medos antigos ou traumas que não consegue superar sozinha.</p>
+                    <p class="text-gray-600">É recomendada para qualquer pessoa que sinta que a vida está travada em áreas como a profissional, amorosa ou de comunicação, e que deseja ressignificar marcas do passado.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                     <h4 class="font-bold text-lg text-gray-900 mb-2 flex items-center">
                         <i data-lucide="help-circle" class="w-5 h-5 text-brand-500 mr-2"></i>
                         Como funcionam os atendimentos?
                     </h4>
-                    <p class="text-gray-600">Os atendimentos são online, realizados por videochamada em ambiente totalmente seguro, privativo e com o mesmo acolhimento e eficácia do formato presencial, no conforto e segurança da sua casa.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 class="font-bold text-lg text-gray-900 mb-2 flex items-center">
-                        <i data-lucide="help-circle" class="w-5 h-5 text-brand-500 mr-2"></i>
-                        Como faço para agendar a minha sessão?
-                    </h4>
-                    <p class="text-gray-600">Basta clicar em qualquer um dos botões de agendamento na página para iniciar uma conversa direta via WhatsApp, onde alinharemos a sua disponibilidade e daremos início ao processo.</p>
+                    <p class="text-gray-600">Os atendimentos são online, realizados por videochamada em ambiente totalmente seguro, privativo e com a máxima eficácia, no conforto da sua casa.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+    <!-- 🚀 RODAPÉ LIMPO COM LINK PARA MODAL -->
+    <footer class="bg-gray-900 text-gray-400 py-10 text-center">
         <div class="max-w-4xl mx-auto px-4">
             <p>&copy; 2026 Erica Rios. Todos os direitos reservados.</p>
-            <p class="text-sm mt-2 mb-4">Terapia TRG - Tratamento especializado em reprocessamento de traumas emocionais.</p>
-            <p class="text-xs text-gray-500">
+            <p class="text-sm mt-2">Terapia TRG - Tratamento especializado em reprocessamento emocional.</p>
+
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-xs font-semibold">
+                <button onclick="document.getElementById('modal-termos').classList.remove('hidden')" class="hover:text-brand-500 transition-colors underline decoration-gray-600 underline-offset-4">
+                    Aviso Legal e Privacidade (LGPD)
+                </button>
+            </div>
+
+            <p class="text-xs text-gray-600 mt-8">
                 Estratégia e Desenvolvimento por <a href="https://siergrowth.com.br/" target="_blank" rel="noopener noreferrer" class="text-orange-500 hover:text-orange-400 transition-colors">Sier Growth</a>
             </p>
         </div>
     </footer>
 
+    <!-- 🚀 MODAL OCULTO: AVISO LEGAL E LGPD -->
+    <div id="modal-termos" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-300">
+        <div class="bg-white rounded-2xl p-8 max-w-xl w-full relative shadow-2xl animate-fade-in">
+            <button onclick="document.getElementById('modal-termos').classList.add('hidden')" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 bg-gray-100 hover:bg-red-50 rounded-full p-2 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <h3 class="text-2xl font-bold mb-6 text-gray-900 border-b pb-4 flex items-center gap-2">
+                <i data-lucide="shield-check" class="text-brand-500"></i> Políticas e Privacidade
+            </h3>
+
+            <div class="space-y-5 text-sm text-gray-600 max-h-[60vh] overflow-y-auto pr-2">
+                <div>
+                    <h4 class="font-bold text-gray-900 text-base mb-1">Proteção de Dados (LGPD)</h4>
+                    <p>Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), garantimos que todos os dados fornecidos neste site são estritamente confidenciais. <strong>Não partilhamos, não vendemos e não expomos os seus dados sensíveis a terceiros.</strong> As suas informações são utilizadas única e exclusivamente para o contacto direto e agendamento da sua sessão pela nossa equipa de atendimento.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-900 text-base mb-1">Isenção de Responsabilidade (Meta)</h4>
+                    <p>Este site não faz parte do site do Facebook ou da Meta Platforms, Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da META PLATFORMS, INC.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-900 text-base mb-1">Aviso Terapêutico</h4>
+                    <p>A Terapia de Reprocessamento Generativo (TRG) é uma terapia complementar focada no reprocessamento emocional e no autoconhecimento. Os resultados variam consoante a dedicação de cada paciente. Este método não substitui de forma alguma tratamentos médicos, psicológicos ou acompanhamento psiquiátrico quando necessário.</p>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('modal-termos').classList.add('hidden')" class="w-full mt-8 bg-gray-900 hover:bg-black text-white font-bold py-4 rounded-xl transition-colors">
+                Li e Compreendi
+            </button>
+        </div>
+    </div>
+
     <script>
-                // Inicializar ícones Lucide
-                lucide.createIcons();
+        // Inicializar ícones Lucide
+        lucide.createIcons();
 
-                // -----------------------------------------------------
-                // LÓGICA DA VSL ANIMADA COM ÁUDIO
-                // -----------------------------------------------------
-                let currentSlide = 1;
-                const totalSlides = 5;
-                const slideDuration = 6500;
-                let isPlaying = false;
-                let progressInterval;
+        // Lógica do Formulário (Abre/Fecha)
+        const btnReveal = document.getElementById('btnRevealForm');
+        const formContent = document.getElementById('form-content');
+        if(btnReveal) {
+            btnReveal.addEventListener('click', () => {
+                btnReveal.style.display = 'none';
+                formContent.classList.remove('hidden');
+            });
+        }
 
-                function startVsl() {
-                    if(isPlaying) return;
-                    isPlaying = true;
-                    document.getElementById('play-screen').style.display = 'none';
-                    const audio = document.getElementById('vsl-audio');
-                    if(audio) audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
+        // -----------------------------------------------------
+        // LÓGICA DA VSL ANIMADA COM ÁUDIO
+        // -----------------------------------------------------
+        let currentSlide = 1;
+        const totalSlides = 5;
+        const slideDuration = 6500;
+        let isPlaying = false;
+        let progressInterval;
+
+        function startVsl() {
+            if(isPlaying) return;
+            isPlaying = true;
+            document.getElementById('play-screen').style.display = 'none';
+            const audio = document.getElementById('vsl-audio');
+            if(audio) audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
+            showSlide(currentSlide);
+        }
+
+        function showSlide(index) {
+            for(let i=1; i<=totalSlides; i++) {
+                document.getElementById('slide-'+i).classList.remove('active');
+                document.getElementById('slide-'+i).classList.add('inactive');
+            }
+            const activeSlide = document.getElementById('slide-'+index);
+            activeSlide.classList.remove('inactive');
+            activeSlide.classList.add('active');
+
+            const progressBar = document.getElementById('progress');
+            progressBar.style.width = '0%';
+            progressBar.style.transition = 'none';
+            setTimeout(() => {
+                progressBar.style.transition = `width ${slideDuration}ms linear`;
+                progressBar.style.width = '100%';
+            }, 50);
+
+            clearInterval(progressInterval);
+            if(index < totalSlides) {
+                progressInterval = setTimeout(() => {
+                    currentSlide++;
                     showSlide(currentSlide);
-                }
+                }, slideDuration);
+            } else {
+                setTimeout(() => progressBar.style.opacity = '0', slideDuration);
+            }
+        }
 
-                function showSlide(index) {
-                    for(let i=1; i<=totalSlides; i++) {
-                        document.getElementById('slide-'+i).classList.remove('active');
-                        document.getElementById('slide-'+i).classList.add('inactive');
-                    }
-                    const activeSlide = document.getElementById('slide-'+index);
-                    activeSlide.classList.remove('inactive');
-                    activeSlide.classList.add('active');
-                    const progressBar = document.getElementById('progress');
-                    progressBar.style.width = '0%';
-                    progressBar.style.transition = 'none';
-                    setTimeout(() => {
-                        progressBar.style.transition = `width ${slideDuration}ms linear`;
-                        progressBar.style.width = '100%';
-                    }, 50);
-                    clearInterval(progressInterval);
-                    if(index < totalSlides) {
-                        progressInterval = setTimeout(() => {
-                            currentSlide++;
-                            showSlide(currentSlide);
-                        }, slideDuration);
+        // -----------------------------------------------------
+        // LÓGICA DO CARROSSEL DE DEPOIMENTOS
+        // -----------------------------------------------------
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let autoScrollInterval;
+
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                if (carousel) {
+                    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                        carousel.scrollTo({ left: 0, behavior: 'smooth' });
                     } else {
-                        setTimeout(() => progressBar.style.opacity = '0', slideDuration);
+                        carousel.scrollBy({ left: 350, behavior: 'smooth' });
                     }
                 }
+            }, 8000);
+        }
+        function stopAutoScroll() { clearInterval(autoScrollInterval); }
 
-                // -----------------------------------------------------
-                // LÓGICA DO CARROSSEL DE DEPOIMENTOS
-                // -----------------------------------------------------
-                const carousel = document.getElementById('carousel');
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-                let autoScrollInterval;
+        if(carousel) {
+            startAutoScroll();
+            carousel.addEventListener('mouseenter', stopAutoScroll);
+            carousel.addEventListener('mouseleave', startAutoScroll);
+            carousel.addEventListener('touchstart', stopAutoScroll);
+            carousel.addEventListener('touchend', stopAutoScroll);
+        }
+        if(prevBtn && nextBtn && carousel) {
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                stopAutoScroll();
+                setTimeout(startAutoScroll, 10000);
+            });
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: -350, behavior: 'smooth' });
+                stopAutoScroll();
+                setTimeout(startAutoScroll, 10000);
+            });
+        }
 
-                function startAutoScroll() {
-                    autoScrollInterval = setInterval(() => {
-                        if (carousel) {
-                            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                                carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                            } else {
-                                carousel.scrollBy({ left: 350, behavior: 'smooth' });
-                            }
-                        }
-                    }, 8000);
-                }
-                function stopAutoScroll() { clearInterval(autoScrollInterval); }
+        // =====================================================
+        // 🚀 INTEGRAÇÃO CRM + PIXEL META (BLINDADO E DIVIDIDO)
+        // =====================================================
+        document.addEventListener("DOMContentLoaded", function() {
+            const leadForm = document.getElementById('leadForm');
+            if(!leadForm) return;
 
-                if(carousel) {
-                    startAutoScroll();
-                    carousel.addEventListener('mouseenter', stopAutoScroll);
-                    carousel.addEventListener('mouseleave', startAutoScroll);
-                    carousel.addEventListener('touchstart', stopAutoScroll);
-                    carousel.addEventListener('touchend', stopAutoScroll);
-                }
-                if(prevBtn && nextBtn && carousel) {
-                    nextBtn.addEventListener('click', () => {
-                        carousel.scrollBy({ left: 350, behavior: 'smooth' });
-                        stopAutoScroll();
-                        setTimeout(startAutoScroll, 10000);
-                    });
-                    prevBtn.addEventListener('click', () => {
-                        carousel.scrollBy({ left: -350, behavior: 'smooth' });
-                        stopAutoScroll();
-                        setTimeout(startAutoScroll, 10000);
-                    });
-                }
+            leadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-                // =====================================================
-                // 🚀 INTEGRAÇÃO COM O SEU CRM INTACTO (CAPTURA + REDIRECT PERSONALIZADO)
-                // =====================================================
-                document.addEventListener("DOMContentLoaded", function() {
-                    const leadForm = document.getElementById('leadForm');
-                    if(!leadForm) return;
+                const btn = this.querySelector('button[type="submit"]');
+                const textoOriginalBtn = btn.innerHTML;
+                btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Conectando...';
+                btn.disabled = true;
 
-                    leadForm.addEventListener('submit', function(e) {
-                        e.preventDefault();
+                const urlParams = new URLSearchParams(window.location.search);
+                const eventId = "evt_" + Date.now();
 
-                        const btn = this.querySelector('button[type="submit"]');
-                        const textoOriginalBtn = btn.innerHTML;
-                        btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Conectando...';
-                        btn.disabled = true;
+                // Captura os Dados
+                const nomeDigitado = document.getElementById('nomeCliente').value;
+                const emailDigitado = document.getElementById('emailCliente').value;
+                const telefoneDigitado = document.getElementById('telefoneCliente').value.replace(/\D/g, '');
+                const dorDigitada = document.getElementById('dorCliente').value;
 
-                        // 1. Puxa as UTMs do link e gera ID pro Facebook
-                        const urlParams = new URLSearchParams(window.location.search);
-                        const eventId = "evt_" + Date.now();
+                // 🚀 1. DISPARO DO PIXEL PARA O META (TOTALMENTE LIMPO E BLINDADO)
+                                if(typeof fbq !== 'undefined') {
+                                    // Manda apenas dados de contacto (Match Quality 10/10)
+                                    fbq('set', 'userData', {
+                                        em: emailDigitado.toLowerCase().trim(),
+                                        ph: '55' + telefoneDigitado,
+                                        fn: nomeDigitado.split(' ')[0].toLowerCase().trim()
+                                    }, '1528974852604484');
 
-                        // 2. 🚀 Captura TODOS os valores preenchidos na hora do clique
-                        const nomeDigitado = document.getElementById('nomeCliente').value;
-                        const dorDigitada = document.getElementById('dorCliente').value;
-                        const telefoneDigitado = document.getElementById('telefoneCliente').value;
+                                    // Manda o evento Lead genérico COM VALOR E MOEDA
+                                    fbq('track', 'Lead', {
+                                        content_name: 'Formulario_TRG',
+                                        content_category: 'Terapia',
+                                        value: 50.00, // 👈 VALOR NUMÉRICO SEM VÍRGULAS NEM SÍMBOLOS
+                                        currency: 'BRL' // 👈 CÓDIGO DA MOEDA (ISO 4217)
+                                    }, { eventID: eventId });
+                                }
 
-                        // 3. Monta a encomenda para o CRM (Com o HACK DA DOR na Origem!)
-                        const dadosLead = {
-                            empresa_id: "db6a32e5-e36c-46ad-90da-e1658f2b9e0b",
-                            nome: nomeDigitado,
-                            telefone: telefoneDigitado,
-                            // 👇 A MÁGICA FOI CORRIGIDA AQUI 👇
-                            origem: dorDigitada ? `Landing Page Externa | Dor: ${dorDigitada}` : "Landing Page Externa",
-                            utm_source: urlParams.get('utm_source') || 'Organico',
-                            utm_medium: urlParams.get('utm_medium') || null,
-                            utm_campaign: urlParams.get('utm_campaign') || 'Direto / LP',
-                            fb_event_id: eventId,
-                            client_user_agent: navigator.userAgent,
-                            client_url: window.location.href
-                        };
+                // 2. Monta a Encomenda para o CRM (AQUI SIM, VAI A DOR COMPLETA!)
+                const dadosLead = {
+                    empresa_id: "db6a32e5-e36c-46ad-90da-e1658f2b9e0b",
+                    nome: nomeDigitado,
+                    email: emailDigitado,
+                    telefone: telefoneDigitado,
+                    origem: dorDigitada ? `Terapia TRG | Dor: ${dorDigitada}` : "Terapia TRG",
+                    utm_source: urlParams.get('utm_source') || 'Organico',
+                    utm_medium: urlParams.get('utm_medium') || null,
+                    utm_campaign: urlParams.get('utm_campaign') || 'Direto / LP',
+                    fb_event_id: eventId,
+                    client_user_agent: navigator.userAgent,
+                    client_url: window.location.href
+                };
 
-                        // Dispara o Pixel Front-end para garantir
-                        if(typeof fbq !== 'undefined') {
-                            fbq('track', 'Lead', {}, { eventID: eventId });
-                        }
+                // 3. Envia para o CRM Sier Growth
+                const urlDoCRM = "https://app.siergrowth.com.br/api/webhook/landingpage";
 
-                        // 4. Bate na porta do CRM da Sier
-                        const urlDoCRM = "https://app.siergrowth.com.br/api/webhook/landingpage";
+                fetch(urlDoCRM, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dadosLead)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.redirect) {
+                        const urlWhatsApp = new URL(data.redirect);
+                        const numeroDestino = urlWhatsApp.pathname.replace('/', '');
 
-                        fetch(urlDoCRM, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(dadosLead)
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            if(data.redirect) {
-                                // 🚀 O HACK DE NEUROMARKETING: Manipulando o texto do WhatsApp!
-                                const urlWhatsApp = new URL(data.redirect);
-                                const numeroDestino = urlWhatsApp.pathname.replace('/', '');
+                        // Mensagem Personalizada Neuromarketing para o WhatsApp
+                        const textoPersonalizado = `Olá Erica! O meu nome é ${nomeDigitado} e estou à procura de ajuda para destravar esta área: ${dorDigitada}.`;
 
-                                // Monta o texto de Neuromarketing altamente personalizado
-                                const textoPersonalizado = `Olá Erica! Meu nome é ${nomeDigitado} e estou buscando ajuda para lidar com: ${dorDigitada}.`;
+                        window.location.href = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(textoPersonalizado)}`;
 
-                                // Redireciona o cliente com o texto matador!
-                                window.location.href = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(textoPersonalizado)}`;
-
-                            } else if (data.error) {
-                                alert("Erro: " + data.error);
-                                btn.innerHTML = textoOriginalBtn;
-                                btn.disabled = false;
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Erro na conexão:', error);
-                            btn.innerHTML = 'Tentar Novamente';
-                            btn.disabled = false;
-                        });
-                    });
+                    } else if (data.error) {
+                        alert("Erro: " + data.error);
+                        btn.innerHTML = textoOriginalBtn;
+                        btn.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro na conexão:', error);
+                    btn.innerHTML = 'Tentar Novamente';
+                    btn.disabled = false;
                 });
-        </script>
-
+            });
+        });
+    </script>
 </body>
 </html>
